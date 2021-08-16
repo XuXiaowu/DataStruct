@@ -1,5 +1,7 @@
-import java.util.Arrays;
-
+/**
+ * 循环队列
+ * 底层数组实现
+ */
 public class LoopQueue<E> implements Queue<E> {
 
     private E[] data;

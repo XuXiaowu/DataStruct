@@ -1,3 +1,6 @@
+/**
+ * 动态数组实现的队列
+ */
 public class ArrayQueue<E> implements Queue<E> {
 
     private Array<E> array;

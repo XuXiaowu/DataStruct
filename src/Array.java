@@ -1,3 +1,6 @@
+/**
+ * 动态数组
+ */
 public class Array<E> {
 
     private E[] data;
@@ -129,6 +132,30 @@ public class Array<E> {
 
         res.append(" ]");
         return res.toString();
+    }
+
+    public static void main(String[] args) {
+        test();
+    }
+
+    private static void test() {
+        Array<Integer> array = new Array<>(20);
+        for (int i = 0; i < 11; i++) {
+            array.addLast(i);
+        }
+        System.out.println(array);
+
+        array.add(1, 100);
+        System.out.println(array);
+
+        array.addFirst(-1);
+        System.out.println(array);
+
+        array.remove(2);
+        System.out.println(array);
+
+        array.removeElement(4);
+        System.out.println(array);
     }
 
 }

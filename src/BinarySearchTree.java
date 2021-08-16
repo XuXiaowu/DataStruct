@@ -1,5 +1,6 @@
-import java.util.Random;
-
+/**
+ * 二分搜索树
+ */
 public class BinarySearchTree<E extends Comparable<E>> {
     private Node root;
     private int size;

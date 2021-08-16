@@ -1,3 +1,6 @@
+/**
+ * 链表实现的栈
+ */
 public class LinkedListStack<E> implements Stack<E> {
 
     LinkedList<E> list;

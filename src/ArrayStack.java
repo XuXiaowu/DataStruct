@@ -1,3 +1,6 @@
+/**
+ * 动态数组实现的栈
+ */
 public class ArrayStack<E> implements Stack<E> {
 
     Array<E> array;
@@ -35,24 +38,39 @@ public class ArrayStack<E> implements Stack<E> {
         return array.getLast();
     }
 
-    public int getCapacity(){
+    public int getCapacity() {
         return array.getCapacity();
     }
 
     @Override
     public String toString() {
-        StringBuilder res=new StringBuilder();
+        StringBuilder res = new StringBuilder();
         res.append("Stack: ");
         res.append("[");
         for (int i = 0; i < array.getSize(); i++) {
             res.append(array.get(i));
-            if (i!=array.getSize()-1){
+            if (i != array.getSize() - 1) {
                 res.append(", ");
             }
         }
 
         res.append("] top");
         return res.toString();
+    }
+
+    public static void main(String[] args) {
+        test();
+    }
+
+    private static void test() {
+        ArrayStack<Integer> stack = new ArrayStack<>();
+        for (int i = 0; i < 5; i++) {
+            stack.push(i);
+            System.out.println(stack);
+        }
+
+        stack.pop();
+        System.out.println(stack);
     }
 
 }

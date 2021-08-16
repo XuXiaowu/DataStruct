@@ -1,3 +1,6 @@
+/**
+ * 链表实现的队列
+ */
 public class LinkedListQueue<E> implements Queue<E> {
 
     private Node head;

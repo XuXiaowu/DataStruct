@@ -1,3 +1,6 @@
+/**
+ * 只有一个尾指针的单向链表
+ */
 public class LinkedList<E> {
 
     private Node dummyHead;
@@ -89,7 +92,7 @@ public class LinkedList<E> {
         if (index < 0 || index > size) throw new IllegalArgumentException("Remove failed, illegal index");
 
         Node prev = dummyHead;
-        for (int i = 0; i < index ; i++) {
+        for (int i = 0; i < index; i++) {
             prev = prev.next;
         }
 
