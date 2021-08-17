@@ -134,6 +134,17 @@ public class Array<E> {
         return res.toString();
     }
 
+    /**
+     * 把i和j位置的元素交换
+     */
+    public void swap(int i, int j) {
+        if (i < 0 || i >= size || j < 0 || j >= size) throw new IllegalArgumentException("index is illegal");
+
+        E temp = data[i];
+        data[i] = data[j];
+        data[j] = temp;
+    }
+
     public static void main(String[] args) {
         test();
     }
