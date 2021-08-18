@@ -78,7 +78,7 @@ public class LinkedList<E> {
     public boolean contains(E e) {
         Node cur = dummyHead.next;
         while (cur != null) {
-            if (cur.e == e) {
+            if (cur.e.equals(e)) {
                 return true;
             } else {
                 cur = cur.next;
@@ -109,6 +109,25 @@ public class LinkedList<E> {
 
     public E removeLast() {
         return remove(size - 1);
+    }
+
+    public void removeElement(E e) {
+        Node prev = dummyHead;
+        //找到要删除的节点
+        while (prev.next != null) {
+            if (prev.next.e.equals(e)) {
+                break;
+            }
+
+            prev = prev.next;
+        }
+
+        //删除节点
+        if (prev.next != null) {
+            Node delNode = prev.next;
+            prev.next = delNode.next;
+            delNode.next = null;
+        }
     }
 
     @Override

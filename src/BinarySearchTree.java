@@ -62,7 +62,7 @@ public class BinarySearchTree<E extends Comparable<E>> {
         return node;
     }
 
-    private boolean contains(E e) {
+    public boolean contains(E e) {
         return contains(root, e);
     }
 
