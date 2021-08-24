@@ -13,7 +13,8 @@ public class Main {
 //        testLinkedListSet();
 //        testSetPerformance();
 //        testLinkedListMap();
-        testBrinySearchTreeMap();
+//        testBrinySearchTreeMap();
+        testHeapifyPerformance();
     }
 
 
@@ -163,6 +164,49 @@ public class Main {
 
         System.out.println("Total different words: " + map.getSize());
         System.out.println("Frequency of pride: " + map.get("pride"));
+    }
+
+    /**
+     * Heapify性能测试
+     */
+    private static double testHeapifyPerformance(Integer[] testData, boolean isHeapify) {
+        long startTime = System.nanoTime();
+
+        MaxHeap<Integer> maxHeap;
+        if (isHeapify) {
+            maxHeap = new MaxHeap<>(testData);
+        } else {
+            maxHeap = new MaxHeap<>();
+            for (Integer testDatum : testData) {
+                maxHeap.add(testDatum);
+            }
+        }
+
+        int[] array = new int[maxHeap.getSize()];
+        for (int i = 0; i < maxHeap.getSize(); i++) {
+            array[i] = maxHeap.extraMax();
+        }
+
+        for (int i = 1; i < array.length; i++) {
+            if (array[i - 1] < array[i]) throw new IllegalArgumentException("error");
+        }
+
+        long endTime = System.nanoTime();
+        return (endTime - startTime) / 1000000000.0;
+    }
+
+    private static void testHeapifyPerformance() {
+        int n = 1000000;
+        Integer[] data = new Integer[n];
+        Random random = new Random();
+        for (int i = 0; i < n; i++) {
+            data[i] = random.nextInt(Integer.MAX_VALUE);
+        }
+
+        double time1 = testHeapifyPerformance(data, false);
+        double time2 = testHeapifyPerformance(data, true);
+        System.out.println("without heapify: " + time1);
+        System.out.println("with heapify: " + time2);
     }
 
 }
